@@ -1,0 +1,120 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New - My ASP.NET Application</title>
+    <link href="/Content/bootstrap-darkly.css" rel="stylesheet">
+    <link href="/Content/site.css" rel="stylesheet">
+</head>
+<body style="background-image:url('/Content/Images/charcoal.jpg')">
+    <nav class="navbar navbar-expand-lg navbar-fixed-top navbar-dark bg-dark">
+        <a class="navbar-brand" href="#"><img src="~/Content/Images/ser03.png" height="40" width="40" /></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+        @Html.ActionLink("እድርተኞቹ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
+
+
+        <div class="collapse navbar-collapse" id="navbarColor02" style="padding-left:6em">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item" style="padding-left:2em">
+                    <a class="nav-link" style="font-size:18px;" href="@Url.Action("Index", "Home")"> <span>Home </span></a>
+                </li>
+                <li class="nav-item" style="font-size:18px; padding-left:2em">
+                    <a class="nav-link" href="@Url.Action("About", "Home")"> <span>About </span></a>
+                </li>
+                <li class="nav-item" style="padding-left:2em">
+                    <a class="nav-link"style="font-size:18px;" href="@Url.Action("Contact", "Home")"><span>Contact </span></a>
+                </li>
+            </ul>
+
+            @Html.Partial("_LoginPartial")
+        </div>
+    </nav>
+    <br /> <br /> <br />
+
+    <div class="pimg1">
+
+        <div class="ptext">
+            <div class="well">
+                እድርተኞቹ
+            </div>
+        </div>
+    </div>
+    <section class="section section-dark">
+        <h2></h2>
+        <p> This website is dedicated to providing up to date information to all pharmacy users in the city of Addis Ababa. We provide a platform that enables users to search needed medicines and provide the names and locations of pharmacies who have those medicines. Users can create accounts to get notifications of newly opened pharmacies and rate pharmacies. Pharmacists and pharmacy owners are encouraged to create accounts to update their data, evaluate their ratings and help their users save precious time and energy.</p>
+    </section>
+
+
+    <section><img src="~/Content/Images/sky2.jpg" class="img-responsive" height="300" width="500" style="margin-left:35%" /></section>
+
+
+    <div class="pimg2" style="background-image:url('/Content/Images/a.jpg')">
+        <div class="ptext">
+            <div class="well">
+                Looking for an Edir near your location?
+            </div>
+        </div>
+    </div>
+    <section class="section section-dark">
+        <h2></h2>
+        <p> Lorem ipsum dolor sit amet, duis liber delectus cum ea, cibo doctus ea vim. Oratio volumus quaerendum ne his, omnesque quaestio mei at. Legere qualisque his an, suscipit ponderum singulis pro id. Eu cum posse salutandi voluptaria.</p>
+    </section>
+    <button type="button" class="btn btn-secondary" style="text-align:center; width:1550px">
+
+        @Html.ActionLink("Look for edirs at your location", "Index", "Edir", null, htmlAttributes: new { style = "font-size:32px; letter-spacing: 10px;" })
+
+    </button>
+
+    <br /><br /><br />
+
+    <section><img src="~/Content/Images/sky3.jpg" class="img-responsive" height="300" width="500" style="margin-left:35%" /></section>
+
+
+
+    <div class="pimg3" style="background-image:url('/Content/Images/a.jpg')">
+        <div class="ptext">
+            <div class="well">
+                Do you want to register your local Edir?
+            </div>
+        </div>
+    </div>
+
+
+
+    <section class="section section-dark">
+        <h2></h2>
+        <p>Lorem ipsum dolor sit amet, duis liber delectus cum ea, cibo doctus ea vim. Oratio volumus quaerendum ne his, omnesque quaestio mei at. Legere qualisque his an, suscipit ponderum singulis pro id. Eu cum posse salutandi voluptaria.</p>
+        <hr />
+
+    </section>
+    <button type="button" class="btn btn-secondary" style="text-align:center; width:1550px">
+
+        @Html.ActionLink("Register Your Edir Today", "New", "Edir", null, htmlAttributes: new { style = "font-size:32px; letter-spacing: 10px;" })
+
+    </button>
+    <br /><br /><br />
+    <section><img src="~/Content/Images/sky4.jpg" class="img-responsive" height="300" width="500" style="margin-left:35%" /></section>
+
+    <img src="~/Content/Images/line.png" />
+    <div class="container body-content">
+
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+</body>
+</html>

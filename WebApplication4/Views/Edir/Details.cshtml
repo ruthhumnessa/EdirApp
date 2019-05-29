@@ -1,0 +1,25 @@
+﻿@model WebApplication4.Models.Edir
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Name</h2>
+
+
+<div class="card border-success mb-5" style="max-width: 30rem;">
+    <div class="card-header">Some details</div>
+    <div class="card-body">
+        <h4 class="card-title">@Model.Name</h4>
+        <p class="card-text">
+            <ul>
+                <li>Edir Name: @Model.Name</li>
+                <li>Subcity: @Model.Subcity</li>
+                <li>Wereda: @Model.Wereda</li>
+                <li>Edir Type: @Model.EdirType.Name</li>
+              
+            </ul>
+        </p>
+    </div>
+</div>
+

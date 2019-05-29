@@ -1,0 +1,63 @@
+﻿@model IEnumerable<WebApplication4.Models.Customer>
+@{
+    /**/
+
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Customers</h2>
+
+<button type="button" class="btn btn-secondary">
+
+    @Html.ActionLink("Create new customer", "Create", "Customer")
+  
+</button>
+
+ <br />
+@if (!Model.Any())
+{
+    <p>We don't have any Customers yet.</p>
+
+
+}
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Customer Name</th>
+                <th>Payment</th>
+                <th>Date</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var customer in Model)
+            {
+
+                <tr>
+                    <td>
+
+                        @customer.Name <br />
+                        <button type="button" class="btn btn-secondary">
+                            @Html.ActionLink("Details", "Details", "Customer", new { id = customer.Id }, null)
+                        </button>
+                        <button type="button" class="btn btn-secondary">
+                            @Html.ActionLink("Edit", "Edit", "Customer", new { id = customer.Id }, null)
+                        </button>
+
+                        <button type="button" class="btn btn-secondary">
+                            @Html.ActionLink("Delete", "Delete", "Customer", new { id = customer.Id }, null)
+                        </button>
+
+                    </td>
+                    <td>@customer.Payment</td>
+                    <td>@customer.Date</td>
+
+
+                </tr>
+            }
+        </tbody>
+    </table>
+}

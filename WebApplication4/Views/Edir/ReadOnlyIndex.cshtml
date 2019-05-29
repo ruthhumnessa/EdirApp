@@ -1,0 +1,53 @@
+﻿@model IEnumerable<WebApplication4.Models.Edir>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br /><br /><br />
+<h2>Edirs</h2>
+<br /><br />
+
+@using (Html.BeginForm("SearchSelected", "Edir", FormMethod.Post, htmlAttributes: new { @class = "form-inline", style = "margin-left:700px;" }))
+{
+
+    <input class="form-control " type="text" name="SearchString" placeholder="Search by Subcity" style="width:300px;">
+    <button class="btn btn-secondary " value="Search" style="margin-left:20px" type="submit">Search</button>
+
+}
+
+
+<br /><br /><br />
+
+@if (!Model.Any())
+{
+    <p>We don't have any Edirs at the searched location.</p>
+}
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Edir Name</th>
+                <th>Type</th>
+                <th>Subcity</th>
+                <th>Wereda</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var edir in Model)
+            {
+
+                <tr>
+                    <td> @edir.Name </td>
+                    <td>@edir.EdirType.Name</td>
+                    <td>@edir.Subcity</td>
+                    <td>@edir.Wereda</td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+

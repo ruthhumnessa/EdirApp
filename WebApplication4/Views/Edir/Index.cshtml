@@ -1,0 +1,71 @@
+﻿@model IEnumerable<WebApplication4.Models.Edir>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br /><br />
+<h2>Registered Edirs</h2>
+<br /><br />
+
+
+
+<button type="button" class="btn btn-secondary">
+
+    @Html.ActionLink("Register new Edir", "New", "Edir")
+
+</button>
+<br /><br />
+
+
+@using (Html.BeginForm("Search", "Edir", FormMethod.Post, htmlAttributes: new { @class = "form-inline", style = "margin-left:700px;" }))
+{
+
+    <input class="form-control " type="text" name="SearchString" placeholder="Search by name" style="width:300px;">
+    <button class="btn btn-secondary " value="Search" style="margin-left:20px" type="submit">Search</button>
+
+}
+<br /><br /><br />
+
+@if (!Model.Any())
+{
+    <p>We don't have any Edirs yet.</p>
+}
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th style="font-size:24px;">Edir Name</th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var edir in Model)
+            {
+
+                <tr>
+                    <td>
+
+                        @edir.Name <br />  <br />
+                        <button type="button" class="btn btn-secondary">
+                            @Html.ActionLink("Details", "Details", "Edir", new { id = edir.Id }, null)
+                        </button>
+
+                        <button type="button" class="btn btn-secondary">
+                            @Html.ActionLink("Edit", "Edit", "Edir", new { id = edir.Id }, null)
+                        </button>
+
+                        <button type="button" class="btn btn-secondary">
+                            @Html.ActionLink("Delete", "Delete", "Edir", new { id = edir.Id }, new { @class = "modal-link", @OnClick = "return confirm('Are you sure you want to delete ?');" })
+                        </button>
+
+
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+

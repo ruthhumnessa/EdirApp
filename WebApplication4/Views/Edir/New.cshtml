@@ -1,0 +1,52 @@
+﻿@model WebApplication4.ViewModels.NewEdirViewModel
+@{
+    /**/
+
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>New Edir</h2>
+
+@using (Html.BeginForm("Create", "Edir"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Edir.Name)
+        @Html.TextBoxFor(m => m.Edir.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m=>m.Edir.Name)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Edir.EdirTypeId)
+        @Html.DropDownListFor(m => m.Edir.EdirTypeId, new SelectList(Model.EdirTypes, "Id", "Name"), "Choose an Edir type", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Edir.EdirTypeId)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Edir.Subcity)
+        @Html.TextBoxFor(m => m.Edir.Subcity, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Edir.Subcity)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Edir.Wereda)
+        @Html.TextBoxFor(m => m.Edir.Wereda, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Edir.Wereda)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Edir.Email)
+        @Html.TextBoxFor(m => m.Edir.Email, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Edir.Email)
+    </div>
+
+    @Html.HiddenFor(m => m.Edir.Id)
+    <button type="submit" class="btn btn-primary">Save</button>
+
+}
+
+@section scripts{
+    
+    @Scripts.Render("~/bundles/jqueryval")
+    
+    }
